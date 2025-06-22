@@ -24,7 +24,7 @@ async function runTest() {
   const proc = Bun.spawn(['node_modules/.bin/vite', 'preview'], {
     stdout: 'pipe',
     stderr: 'pipe',
-    env: { ...process.env, NO_COLOR: '1' },
+    detached: true,
   });
 
   let ready = false;
@@ -39,7 +39,7 @@ async function runTest() {
     logger(text);
     const match = text.match(/http:\/\/localhost:(\d+)/);
     if (match) {
-      viteUrl = `http://localhost:${match[1]}`;
+      viteUrl = `http://localhost:${match[1]}/appiconly-webapp`;
       ready = true;
     }
   }
