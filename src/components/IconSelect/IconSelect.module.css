@@ -1,0 +1,12 @@
+.dimensions {
+  width: 80%
+}
+.heading {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.label {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}

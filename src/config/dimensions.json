@@ -1,0 +1,122 @@
+[
+  {
+    "name": "MDPI",
+    "description": "Baseline icon for medium-density screens",
+    "width": 48,
+    "height": 48,
+    "os": "Android",
+    "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+  },
+  {
+    "name": "HDPI",
+    "description": "High-density screen icon",
+    "width": 72,
+    "height": 72,
+    "os": "Android",
+    "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+  },
+  {
+    "name": "XHDPI",
+    "description": "Extra-high-density screen icon",
+    "width": 96,
+    "height": 96,
+    "os": "Android",
+    "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+  },
+  {
+    "name": "XXHDPI",
+    "description": "Extra-extra-high-density screen icon",
+    "width": 144,
+    "height": 144,
+    "os": "Android",
+    "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+  },
+  {
+    "name": "XXXHDPI",
+    "description": "Extra-extra-extra-high-density screen icon",
+    "width": 192,
+    "height": 192,
+    "os": "Android",
+    "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+  },
+  {
+    "name": "Google Play Store",
+    "description": "Icon for Google Play Store listing",
+    "width": 512,
+    "height": 512,
+    "os": "Android",
+    "path": "android/playstore-icon.png"
+  },
+  {
+    "name": "App Store",
+    "description": "Icon for App Store submission",
+    "width": 1024,
+    "height": 1024,
+    "os": "iOS",
+    "path": "ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png"
+  },
+  {
+    "name": "iPhone Notification 2x",
+    "description": "iPhone notification icon (2x)",
+    "width": 40,
+    "height": 40,
+    "os": "iOS",
+    "path": "ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png"
+  },
+  {
+    "name": "iPhone Notification 3x",
+    "description": "iPhone notification icon (3x)",
+    "width": 60,
+    "height": 60,
+    "os": "iOS",
+    "path": "ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png"
+  },
+  {
+    "name": "iPhone App 2x",
+    "description": "iPhone app icon (2x)",
+    "width": 120,
+    "height": 120,
+    "os": "iOS",
+    "path": "ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png"
+  },
+  {
+    "name": "iPhone App 3x",
+    "description": "iPhone app icon (3x)",
+    "width": 180,
+    "height": 180,
+    "os": "iOS",
+    "path": "ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png"
+  },
+  {
+    "name": "iPad Notification",
+    "description": "iPad notification icon",
+    "width": 20,
+    "height": 20,
+    "os": "iOS",
+    "path": "ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png"
+  },
+  {
+    "name": "iPad App 1x",
+    "description": "iPad app icon (1x)",
+    "width": 76,
+    "height": 76,
+    "os": "iOS",
+    "path": "ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png"
+  },
+  {
+    "name": "iPad App 2x",
+    "description": "iPad app icon (2x)",
+    "width": 152,
+    "height": 152,
+    "os": "iOS",
+    "path": "ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png"
+  },
+  {
+    "name": "iPad Pro App",
+    "description": "iPad Pro app icon",
+    "width": 167,
+    "height": 167,
+    "os": "iOS",
+    "path": "ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png"
+  }
+]

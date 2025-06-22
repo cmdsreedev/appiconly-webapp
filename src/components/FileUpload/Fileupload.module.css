@@ -1,0 +1,24 @@
+.dropAreaContainer {
+    border-width: 2px;
+    border-color: var(--pico-color-grey-500);
+    border-style: dashed;
+    padding: 30px;
+
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    min-height: 150px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.dropAreaContainer.active {
+    border-color: var(--pico-color-orange-450);
+    background-color: var(--pico-color-grey-500);
+    opacity: 0.8;
+}
+
+.fileInput {
+    visibility: hidden;
+    position: absolute
+}
