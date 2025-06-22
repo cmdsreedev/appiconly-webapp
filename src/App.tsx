@@ -99,13 +99,13 @@ function App() {
       )}
       <p className={styles.footer}>
         Made with ❤️ by{' '}
-        <a href="https://github.com/cmdsree/appiconly" target="_blank" rel="noopener noreferrer">
-          cmdsree
+        <a href="https://cmdsree.dev" target="_blank" rel="noopener noreferrer">
+          cmdsree.dev
         </a>
       </p>
       <p className={styles.footer}>
         <a
-          href="https://github.com/cmdsree/appoiconly/issues/new?template=feedback.md"
+          href="https://github.com/cmdsreedev/appiconly-webapp/issues/new?template=feedback.md"
           target="_blank"
         >
           Submit Feedback on GitHub
