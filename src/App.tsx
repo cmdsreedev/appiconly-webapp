@@ -80,7 +80,11 @@ function App() {
         <div style={{ color: 'red', marginTop: '1rem', marginBottom: '1rem' }}>{error}</div>
       )}
       <div className={styles.buttonGroup}>
-        <button className={styles.button} onClick={handleGenerateIcons}>
+        <button
+          className={styles.button}
+          onClick={handleGenerateIcons}
+          data-testid="generate-icons"
+        >
           Generate Icons
         </button>
         <button className={styles.button} onClick={handleGenerateAllIcons}>
