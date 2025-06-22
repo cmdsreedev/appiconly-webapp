@@ -1,9 +1,8 @@
-import puppeteer from 'puppeteer';
 import fs from 'fs/promises';
 import path from 'path';
+import puppeteer from 'puppeteer';
 import unzipper from 'unzipper';
-
-(async () => {
+async function runTest() {
   const expectedFiles = [
     'downloads/unzipped/android/app/src/main/res/mipmap-hdpi/ic_launcher.png',
     'downloads/unzipped/android/app/src/main/res/mipmap-mdpi/ic_launcher.png',
@@ -21,6 +20,31 @@ import unzipper from 'unzipper';
     'downloads/unzipped/ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png',
     'downloads/unzipped/ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png',
   ];
+  // Start the Vite preview server and detect the running port
+  const proc = Bun.spawn(['node_modules/.bin/vite', 'preview'], {
+    stdout: 'pipe',
+    stderr: 'pipe',
+    env: { ...process.env, NO_COLOR: '1' },
+  });
+
+  let ready = false;
+  let viteUrl = null;
+  const reader = proc.stdout.getReader();
+  const decoder = new TextDecoder();
+
+  while (!ready) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    const text = decoder.decode(value);
+    logger(text);
+    const match = text.match(/http:\/\/localhost:(\d+)/);
+    if (match) {
+      viteUrl = `http://localhost:${match[1]}`;
+      ready = true;
+    }
+  }
+  if (!viteUrl) throw new Error('Could not detect Vite preview server port');
+  logger('Detected Vite preview server at:', viteUrl);
 
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
@@ -46,7 +70,7 @@ import unzipper from 'unzipper';
   }
   {
     const targetPage = page;
-    await targetPage.goto('http://localhost:5173/');
+    await targetPage.goto(viteUrl);
   }
   // {
   //     const targetPage = page;
@@ -454,8 +478,10 @@ import unzipper from 'unzipper';
   }
 
   await browser.close();
-})().catch((err) => {
-  console.error(err);
+}
+
+runTest().catch((err) => {
+  console.error('❌ Test failed:', err);
   process.exit(1);
 });
 
