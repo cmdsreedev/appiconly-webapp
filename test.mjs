@@ -24,7 +24,6 @@ async function runTest() {
   const proc = Bun.spawn(['node_modules/.bin/vite', 'preview'], {
     stdout: 'pipe',
     stderr: 'pipe',
-    detached: true,
   });
 
   let ready = false;
