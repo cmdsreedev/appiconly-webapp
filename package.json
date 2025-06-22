@@ -1,8 +1,11 @@
 {
   "name": "appiconly",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "engine": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "npm run format && tsc -b && vite build",

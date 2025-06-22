@@ -480,10 +480,17 @@ async function runTest() {
   await browser.close();
 }
 
-runTest().catch((err) => {
-  console.error('❌ Test failed:', err);
-  process.exit(1);
-});
+runTest()
+  .then(() => {
+    {
+      console.log('✅ Test completed successfully.');
+      process.exit(0);
+    }
+  })
+  .catch((err) => {
+    console.error('❌ Test failed:', err);
+    process.exit(1);
+  });
 
 // Custom logger that checks DEBUG env variable
 function logger(...args) {
