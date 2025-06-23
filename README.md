@@ -2,7 +2,7 @@
 
 AppIconly is a tool designed to simplify the process of generating and managing app icons for your projects. It automates icon creation, resizing, and export for multiple platforms, saving you time and ensuring consistency.
 
-![GitHub Actions](https://github.com/cmdsree/appiconly/actions/workflows/main.yml/badge.svg)
+[![e2e CI](https://github.com/cmdsreedev/appiconly-webapp/actions/workflows/node.js.yml/badge.svg?branch=main&event=push)](https://github.com/cmdsreedev/appiconly-webapp/actions/workflows/node.js.yml)
 
 ## Features
 
