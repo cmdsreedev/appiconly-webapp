@@ -20,33 +20,33 @@ async function runTest() {
     'downloads/unzipped/ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png',
     'downloads/unzipped/ios/App/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png',
   ];
-  // Start the Vite preview server and detect the running port
-  const proc = Bun.spawn(['node_modules/.bin/vite', 'preview'], {
-    stdout: 'pipe',
-    stderr: 'pipe',
-  });
+  // // Start the Vite preview server and detect the running port
+  // const proc = Bun.spawn(['node_modules/.bin/vite', 'preview'], {
+  //   stdout: 'pipe',
+  //   stderr: 'pipe',
+  // });
 
-  let ready = false;
-  let viteUrl = null;
-  const reader = proc.stdout.getReader();
-  const decoder = new TextDecoder();
-  let loopCount = 0;
-  const maxLoops = 60; // e.g. 30 seconds
+  // let ready = false;
+  // let viteUrl = null;
+  // const reader = proc.stdout.getReader();
+  // const decoder = new TextDecoder();
+  // let loopCount = 0;
+  // const maxLoops = 60; // e.g. 30 seconds
 
-  while (!ready && loopCount < maxLoops) {
-    const { value, done } = await reader.read();
-    if (done) break;
-    const text = decoder.decode(value);
-    logger(text);
-    const match = text.match(/http:\/\/localhost:(\d+)/);
-    if (match) {
-      viteUrl = `http://localhost:${match[1]}/appiconly-webapp`;
-      ready = true;
-    }
-    loopCount++;
-  }
-  if (!viteUrl) throw new Error('Could not detect Vite preview server port');
-  logger('Detected Vite preview server at:', viteUrl);
+  // while (!ready && loopCount < maxLoops) {
+  //   const { value, done } = await reader.read();
+  //   if (done) break;
+  //   const text = decoder.decode(value);
+  //   logger(text);
+  //   const match = text.match(/http:\/\/localhost:(\d+)/);
+  //   if (match) {
+  //     viteUrl = `http://localhost:${match[1]}/appiconly-webapp`;
+  //     ready = true;
+  //   }
+  //   loopCount++;
+  // }
+  // if (!viteUrl) throw new Error('Could not detect Vite preview server port');
+  // logger('Detected Vite preview server at:', viteUrl);
 
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
@@ -72,33 +72,8 @@ async function runTest() {
   }
   {
     const targetPage = page;
-    await targetPage.goto(viteUrl);
+    await targetPage.goto('http://localhost:4173/appiconly-webapp');
   }
-  // {
-  //     const targetPage = page;
-  //     // Fix: Puppeteer does not have Locator.race or locator.waitFor. Use page.waitForSelector for the first visible selector.
-  //     const selectors = [
-  //         '::-p-aria(Upload Icon Image)',
-  //         'div._fileUploader_129bv_35 button',
-  //         '::-p-xpath(//*[@id="root"]/div/div[2]/div/div/button)',
-  //         ':scope >>> div._fileUploader_129bv_35 button',
-  //         '::-p-text(Upload Icon Image)'
-  //     ];
-  //     let uploadButton = null;
-  //     for (const selector of selectors) {
-  //         try {
-  //             uploadButton = await targetPage.waitForSelector(selector, { visible: true, timeout });
-  //             if (uploadButton) break;
-  //         } catch (e) {}
-  //     }
-  //     if (!uploadButton) throw new Error('Upload button not found');
-  //     await uploadButton.click({
-  //         offset: {
-  //             x: 114.140625,
-  //             y: 21.8125,
-  //         },
-  //     });
-  // }
   {
     const targetPage = page;
     // Try multiple selectors for the file input, as the DOM may change or the selector may be different
