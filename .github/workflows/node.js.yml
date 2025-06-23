@@ -31,7 +31,7 @@ jobs:
 
       - name: Run tests
         run: bun test.mjs
-        timeout-minutes:: 3
+        timeout-minutes: 3
         env:
           DEBUG: 'true'
 
