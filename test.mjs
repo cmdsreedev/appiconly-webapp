@@ -48,7 +48,10 @@ async function runTest() {
   // if (!viteUrl) throw new Error('Could not detect Vite preview server port');
   // logger('Detected Vite preview server at:', viteUrl);
 
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
   const page = await browser.newPage();
   const timeout = 5000;
   page.setDefaultTimeout(timeout);
