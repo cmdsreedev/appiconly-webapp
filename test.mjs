@@ -30,8 +30,10 @@ async function runTest() {
   let viteUrl = null;
   const reader = proc.stdout.getReader();
   const decoder = new TextDecoder();
+  let loopCount = 0;
+  const maxLoops = 60; // e.g. 30 seconds
 
-  while (!ready) {
+  while (!ready && loopCount < maxLoops) {
     const { value, done } = await reader.read();
     if (done) break;
     const text = decoder.decode(value);
@@ -41,6 +43,7 @@ async function runTest() {
       viteUrl = `http://localhost:${match[1]}/appiconly-webapp`;
       ready = true;
     }
+    loopCount++;
   }
   if (!viteUrl) throw new Error('Could not detect Vite preview server port');
   logger('Detected Vite preview server at:', viteUrl);
