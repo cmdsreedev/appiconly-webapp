@@ -131,9 +131,10 @@ function App() {
               <div
                 style={{
                   marginTop: '0.5rem',
-                  border: '1px solid #eee',
+                  border: '1px solid #494949',
                   borderRadius: 4,
                   padding: '0.5rem',
+                  width: '100%',
                 }}
               >
                 <IconSelect
